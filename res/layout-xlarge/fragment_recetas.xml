@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <fragment
+        android:id="@+id/fragmentRecetas"
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="30"
+        class="com.yoanaydavid.recetas.RecetasFragment" />
+
+    <FrameLayout
+        android:id="@+id/detailsRecetas"
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="70" />
+    
+    <android.support.v4.view.ViewPager
+            android:id="@+id/pagerDetailsRecetas"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="70"
+            android:visibility="gone">
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

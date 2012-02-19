@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Main!</string>
+    <string name="app_name">Recetas 2</string>
+    <string name="buscar">Buscar&#8230;</string>
+    <string name="addIngrediente">Añadir ingrediente</string>
+    <string name="insertName">Introduzca un nombre para la lista</string>
+    <string name="proximamente">Disponible en futuras versiones</string>
+    <string name="nombreTxt">Nombre:</string>
+    <string name="ingredientes">Ingredientes</string>
+    <string name="elaboracion">Elaboración</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="ingrediente">Ingredientes</string>
+    <string name="anadirimagen">Añadir Imagen</string>
+    <string name="descripcion">Introduce la descripción del paso</string>
+    <string name="guardarpaso">Guardar Paso</string>
+    <string-array name="menu_ingredientes">
+        <item>Editar</item>
+        <item>Borrar</item>
+    </string-array>
+    <string name="spinnerprompt">Opciones</string>
+</resources>

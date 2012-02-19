@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyWindowTitleBackground">
+        <item name="android:background">#444444</item>
+    </style>
+
+    <style name="MyTheme" parent="@android:style/Theme.Holo">
+        <item name="android:windowTitleBackgroundStyle">@style/MyWindowTitleBackground</item>
+        <item name="android:buttonStyle">@style/MyButton</item>
+    </style>
+
+    <style name="MyButton" parent="android:style/Widget.Button">
+        <item name="android:textColor">#fff2f2f2</item>
+        <item name="android:background">@drawable/button_background</item>
+    </style>
+
+</resources>

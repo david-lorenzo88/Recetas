@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/recetas"
+    android:orientation="vertical" >
+
+    <TableLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:stretchColumns="*" >
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/ListaCompraButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:drawableLeft="@drawable/list"
+                android:drawablePadding="5sp"
+                android:gravity="left|center_vertical"
+                android:text="Nueva lista"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/VerListasButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:drawableLeft="@drawable/view"
+                android:drawablePadding="5sp"
+                android:gravity="left|center_vertical"
+                android:text="Ver listas"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/RecetaButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:drawableLeft="@drawable/receta_icon"
+                android:drawablePadding="5sp"
+                android:gravity="left|center_vertical"
+                android:text="Nueva Receta"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/VerRecetasGuardadasButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:drawableLeft="@drawable/view"
+                android:drawablePadding="5sp"
+                android:gravity="left|center_vertical"
+                android:onClick="verRecetasGuardadasOnClick"
+                android:text="Ver Recetas"
+                android:textStyle="bold" />
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>

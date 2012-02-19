@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="true" >
+
+
+        <AutoCompleteTextView
+            android:id="@+id/txtIngredient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrediente"
+            android:layout_alignTop="@+id/btnAdd"
+            android:layout_alignBottom="@+id/btnAdd"
+            android:layout_toLeftOf="@+id/btnAdd" />
+
+
+
+        <EditText
+            android:id="@+id/txtQuantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cantidad"
+            android:layout_alignTop="@+id/btnSave"
+            android:layout_alignBottom="@+id/btnSave"
+            android:layout_toLeftOf="@+id/btnSave" />
+
+
+
+ 
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/add"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:padding="0dp"
+            style="@style/MyButton" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/save"
+            android:visibility="invisible"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/btnAdd"
+            android:padding="0dp"
+            style="@style/MyButton" />
+
+
+
+</RelativeLayout>

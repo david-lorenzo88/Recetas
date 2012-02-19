@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="5dp" >
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:tabStripLeft="@drawable/tab" />
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/saveLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@android:id/tabs"
+            android:padding="5dp" >
+
+            <RelativeLayout
+                android:id="@+id/recetasModeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ListView
+                    android:id="@+id/listRecetaModes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true" >
+                </ListView>
+
+                <EditText
+                    android:id="@+id/txtRecetaElaboracionSimple"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="top|left"
+                    android:hint="Introduzca aquí la elaboración de su receta"
+                    android:inputType="textMultiLine"
+                    android:lines="5"
+                    android:scrollHorizontally="false"
+                    android:visibility="gone" >
+                </EditText>
+
+                <ListView
+                    android:id="@+id/listPasos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/btnCrearPaso"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:visibility="gone" >
+                </ListView>
+
+                <Button
+                    android:id="@+id/btnCrearPaso"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:drawableLeft="@drawable/create"
+                    android:text="Nuevo Paso"
+                    android:visibility="gone"
+                    style="@style/MyButton" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ingredientesLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <include layout="@layout/ingredientes_form" />
+
+                <ListView
+                    android:id="@+id/listIngredientes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                </ListView>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/guardarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <WebView
+                    android:id="@+id/webViewDetalles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/txtNombreReceta"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:background="#FF000000"
+                    android:scrollbarDefaultDelayBeforeFade="500"
+                    android:scrollbarStyle="insideOverlay" />
+
+                <EditText
+                    android:id="@+id/txtNombreReceta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/btnSaveList"
+                    android:layout_alignTop="@+id/btnSaveList"
+                    android:layout_toLeftOf="@+id/btnSaveList"
+                    android:hint="Nombre para la receta" >
+                </EditText>
+
+                <Button
+                    android:id="@+id/btnSaveList"
+                    style="@style/MyButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:drawableLeft="@drawable/ic_menu_save"
+                    android:padding="0dp" />
+            </RelativeLayout>
+        </FrameLayout>
+    </RelativeLayout>
+
+</TabHost>

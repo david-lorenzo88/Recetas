@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+        <ImageView
+        android:id="@+id/iconRecetasMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/receta_icon" 
+        android:contentDescription="Icon"/>
+
+    <TextView
+        android:id="@+id/txtRecetasModeTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/iconRecetasMode"
+        android:textSize="25sp"
+        android:layout_centerVertical="true"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtRecetasModeTexto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iconRecetasMode"
+        android:layout_below="@+id/txtRecetasModeTitulo"
+        android:textSize="16sp"
+        android:layout_centerVertical="true"
+        android:paddingBottom="10sp"/>
+
+</RelativeLayout>

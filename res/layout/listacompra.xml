@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/txtBuscar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:layout_toLeftOf="@+id/addIngredienteButton"
+        android:layout_toRightOf="@+id/clearButton"
+        android:hint="@string/buscar" >
+    </EditText>
+
+    <Button
+        android:id="@+id/addIngredienteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/txtBuscar"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/txtBuscar"
+        android:layout_marginRight="10dp"
+        android:drawableLeft="@drawable/add" >
+    </Button>
+
+    <Button
+        android:id="@+id/crearListaButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:drawableLeft="@drawable/create"
+        android:drawablePadding="15sp"
+        android:gravity="left|center_vertical"
+        android:text="Crear Lista"
+        android:textStyle="bold" >
+    </Button>
+
+    
+    <ListView
+        android:id="@+id/ingredientesListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/crearListaButton"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtBuscar" />
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/txtBuscar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/txtBuscar"
+        android:drawableLeft="@drawable/filter" >
+    </Button>
+
+    
+
+</RelativeLayout>
