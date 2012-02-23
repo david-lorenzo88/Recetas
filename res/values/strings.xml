@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="hello">Hello World, Main!</string>
     <string name="app_name">Recetas 2</string>
-    <string name="buscar">Buscar&#8230;</string>
+    <string name="buscar">Buscar…</string>
     <string name="addIngrediente">Añadir ingrediente</string>
     <string name="insertName">Introduzca un nombre para la lista</string>
     <string name="proximamente">Disponible en futuras versiones</string>
@@ -14,9 +15,17 @@
     <string name="anadirimagen">Añadir Imagen</string>
     <string name="descripcion">Introduce la descripción del paso</string>
     <string name="guardarpaso">Guardar Paso</string>
+
     <string-array name="menu_ingredientes">
         <item>Editar</item>
         <item>Borrar</item>
     </string-array>
+
     <string name="spinnerprompt">Opciones</string>
+    <string name="alternate_title">An alternate title that is long</string>
+    <string name="toggle_title">Toggle title</string>
+    <string name="menu_refresh">Refresh</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_share">Share</string>
+
 </resources>

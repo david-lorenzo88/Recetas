@@ -142,16 +142,13 @@ public class EditFragment extends Fragment {
 			// TODO Auto-generated method stub
 
 		}
-		
+
 		@Override
 		public void onTextChanged(CharSequence s, int start, int before,
 				int count) {
 			// TODO Auto-generated method stub
-			
-			
-			
 
-			//adapter.setListCopy(lista);
+			// adapter.setListCopy(lista);
 
 			String texto = txtBuscar.getText().toString().trim();
 			// Toast.makeText(getActivity(), texto,
@@ -170,10 +167,11 @@ public class EditFragment extends Fragment {
 
 		}
 	};
+
 	public void setMatchedIngs(String s) {
 		ArrayList<Ingrediente> ings = new ArrayList<Ingrediente>();
 		for (int i = 0; i < lista.size(); i++) {
-			
+
 			if (lista.get(i).getNombre().toLowerCase()
 					.contains(s.toLowerCase()))
 				ings.add(lista.get(i));
@@ -184,6 +182,7 @@ public class EditFragment extends Fragment {
 		checkItems();
 
 	}
+
 	/*
 	 * private OnKeyListener txtBuscarOnKey = new OnKeyListener() {
 	 * 
@@ -218,8 +217,7 @@ public class EditFragment extends Fragment {
 		this.mode = mode;
 
 		this.nombreLista = nombreLista;
-		
-		
+
 		this.listener = listener;
 		file = new FileXML();
 		try {
@@ -227,8 +225,7 @@ public class EditFragment extends Fragment {
 			Collections.sort(lista);
 			if (mode == Mode.EDIT && selectedIngs != null)
 				setItemsChecked(selectedIngs);
-			
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -238,15 +235,16 @@ public class EditFragment extends Fragment {
 	@Override
 	public void onDestroy() {
 		try {
-			if (mode == Mode.EDIT 
+			if (mode == Mode.EDIT
 					&& ((ListasActivity) getActivity()).ismDualPane()
-					&& !((ListasActivity) getActivity()).isFinishing() && nombreLista!= null) {
+					&& !((ListasActivity) getActivity()).isFinishing()
+					&& nombreLista != null) {
 				crearDialogo(
 						"¿Desea guardar los cambios en la lista \""
 								+ nombreLista + "\"?", Mode.DIALOG_SAVE, -1)
 						.show();
 			}
-			
+
 			super.onDestroy();
 		} catch (ClassCastException ex) {
 			super.onDestroy();
@@ -270,23 +268,20 @@ public class EditFragment extends Fragment {
 			}
 		};
 		listViewIngs.setOnTouchListener(gestureListener);
-		
-		if(mode == Mode.EDIT)
-			getActivity().setTitle("Recetas 2 - Editar \""+nombreLista+"\"");
-		
-		
-		
 
-		
+		if (mode == Mode.EDIT)
+			getActivity()
+					.setTitle("Recetas 2 - Editar \"" + nombreLista + "\"");
+
 	}
+
 	static class ViewHolder {
 		CheckedTextView checkbox;
-		
-		public ViewHolder(CheckedTextView checkbox){
+
+		public ViewHolder(CheckedTextView checkbox) {
 			this.checkbox = checkbox;
 		}
 	}
-
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -305,8 +300,7 @@ public class EditFragment extends Fragment {
 		txtBuscar = (EditText) content.findViewById(R.id.txtBuscar);
 		txtBuscar.addTextChangedListener(textWatcher);
 
-		addButton = (Button) content
-				.findViewById(R.id.addIngredienteButton);
+		addButton = (Button) content.findViewById(R.id.addIngredienteButton);
 		addButton.setOnClickListener(addIngredienteOnClick);
 
 		listaButton = (Button) content.findViewById(R.id.crearListaButton);
@@ -325,29 +319,27 @@ public class EditFragment extends Fragment {
 		listViewIngs.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick( AdapterView<?> parent, View item, 
-                    int position, long id) {
+			public void onItemClick(AdapterView<?> parent, View item,
+					int position, long id) {
 				// TODO Auto-generated method stub
-				/*Ingrediente ing = (Ingrediente)adapter.getItem( position );
-		        ing.setChecked(!ing.isChecked());
-		        ViewHolder viewHolder = (ViewHolder) item.getTag();
-		        viewHolder.checkbox.setChecked( ing.isChecked() );*/
-				
-				
-				
-				
-				
-				CheckedTextView v = (CheckedTextView) item;// Log.v("test", Boolean.toString(v.isChecked()));
+				/*
+				 * Ingrediente ing = (Ingrediente)adapter.getItem( position );
+				 * ing.setChecked(!ing.isChecked()); ViewHolder viewHolder =
+				 * (ViewHolder) item.getTag(); viewHolder.checkbox.setChecked(
+				 * ing.isChecked() );
+				 */
+
+				CheckedTextView v = (CheckedTextView) item;// Log.v("test",
+															// Boolean.toString(v.isChecked()));
 				boolean check = !v.isChecked();
-				//v.setChecked(check);
-				for(int i=0; i<lista.size(); i++){
-					if(v.getText().toString().equals(lista.get(i).getNombre())){
+				// v.setChecked(check);
+				for (int i = 0; i < lista.size(); i++) {
+					if (v.getText().toString().equals(lista.get(i).getNombre())) {
 						lista.get(i).setChecked(check);
 						break;
 					}
 				}
-				
-				
+
 			}
 
 		});
@@ -357,37 +349,38 @@ public class EditFragment extends Fragment {
 		if (adapter != null)
 			listViewIngs.setAdapter(adapter);
 
-
 		return content;
 
 	}
+
 	@Override
-	public void onResume(){
+	public void onResume() {
 		super.onResume();
 		checkItems();
-		
-		
+
 	}
-	
-	public void checkItems(){
-		for(int i = 0;i<adapter.getList().size(); i++){
-			if(adapter.getList().get(i).isChecked()){
+
+	public void checkItems() {
+		for (int i = 0; i < adapter.getList().size(); i++) {
+			if (adapter.getList().get(i).isChecked()) {
 				listViewIngs.setItemChecked(i, true);
 			} else {
 				listViewIngs.setItemChecked(i, false);
 			}
 		}
 	}
+
 	public void setItemsChecked(List<String> selectedIngs) {
 		for (int i = 0; i < selectedIngs.size(); i++)
 			for (int j = 0; j < lista.size(); j++)
 				if (lista.get(j).getNombre().equals(selectedIngs.get(i))) {
-					Log.v("test", "Checked - "+lista.get(j).getNombre());
+					Log.v("test", "Checked - " + lista.get(j).getNombre());
 					lista.get(j).setChecked(true);
-					
+
 					break;
 				}
 	}
+
 	public void setItemsCheckedInListView() {
 		ArrayList<String> selectedIngs = getSelectedIngs();
 		for (int i = 0; i < selectedIngs.size(); i++)
@@ -395,7 +388,7 @@ public class EditFragment extends Fragment {
 				if (lista.get(j).getNombre().equals(selectedIngs.get(i))) {
 					// Log.v("test", lista.get(j).getNombre());
 					listViewIngs.setItemChecked(j, true);
-					
+
 					break;
 				}
 	}
@@ -431,7 +424,7 @@ public class EditFragment extends Fragment {
 
 						}
 					});
-		
+
 		}
 
 		AlertDialog alert = builder.create();
@@ -456,20 +449,23 @@ public class EditFragment extends Fragment {
 	private void onLTRFling(int pos) {
 		// Toast.makeText(getActivity(), ""+listViewIngs.getItemAtPosition(pos),
 		// Toast.LENGTH_SHORT).show();
-
-		crearDialogo(
-				"¿Seguro que desea borrar \""
-						+ listViewIngs.getItemAtPosition(pos) + "\"?",
-				Mode.DIALOG_DELETE, pos).show();
+		if (pos != ListView.INVALID_POSITION) {
+			crearDialogo(
+					"¿Seguro que desea borrar \""
+							+ listViewIngs.getItemAtPosition(pos) + "\"?",
+					Mode.DIALOG_DELETE, pos).show();
+		}
 	}
 
 	private void onRTLFling(int pos) {
 		// Toast.makeText(getActivity(), ""+listViewIngs.getItemAtPosition(pos),
 		// Toast.LENGTH_SHORT).show();
-		crearDialogo(
-				"¿Seguro que desea borrar \""
-						+ listViewIngs.getItemAtPosition(pos) + "\"?",
-				Mode.DIALOG_DELETE, pos).show();
+		if (pos != ListView.INVALID_POSITION) {
+			crearDialogo(
+					"¿Seguro que desea borrar \""
+							+ listViewIngs.getItemAtPosition(pos) + "\"?",
+					Mode.DIALOG_DELETE, pos).show();
+		}
 	}
 
 	private void borrarIngrediente(int pos) {

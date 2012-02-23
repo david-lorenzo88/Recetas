@@ -38,6 +38,7 @@ public class RecetasFragment extends ListFragment {
 	public void setItemChecked(int pos) {
 		getListView().setItemChecked(pos, true);
 	}
+
 	@Override
 	public void onActivityCreated(Bundle state) {
 		super.onActivityCreated(state);
@@ -97,9 +98,9 @@ public class RecetasFragment extends ListFragment {
 				|| position != mCurCheckPosition
 				|| ((((RecetasActivity) getActivity()).ismDualPane() && position == 0))) {
 			// Si no estamos en dual panel o si position != mCurCheckPosition
-			//mCurCheckPosition = position;
+			// mCurCheckPosition = position;
 
-			//l.setItemChecked(position, true);
+			// l.setItemChecked(position, true);
 			if (listener != null) {
 				listener.onListaSelected(position, elementos);
 			}
@@ -154,14 +155,17 @@ public class RecetasFragment extends ListFragment {
 					adapter.notifyDataSetChanged();
 					Toast.makeText(getActivity(), "Receta borrada",
 							Toast.LENGTH_SHORT).show();
-					
-					if(((RecetasActivity) getActivity()).ismDualPane())
-						((RecetasActivity) getActivity()).mPager.setCurrentItem(0);
-					
-					/*DetailsRecetasFragment details = (DetailsRecetasFragment) ((RecetasActivity) getActivity())
-							.getSupportFragmentManager().findFragmentById(
-									R.id.detailsRecetas);
-					details.setDefaultValues();*/
+
+					if (((RecetasActivity) getActivity()).ismDualPane())
+						((RecetasActivity) getActivity()).mPager
+								.setCurrentItem(0);
+
+					/*
+					 * DetailsRecetasFragment details = (DetailsRecetasFragment)
+					 * ((RecetasActivity) getActivity())
+					 * .getSupportFragmentManager().findFragmentById(
+					 * R.id.detailsRecetas); details.setDefaultValues();
+					 */
 				}
 
 			}
@@ -174,15 +178,19 @@ public class RecetasFragment extends ListFragment {
 
 	private void onLTRFling(int pos) {
 		// Abrir lista
-		gestionarOnItemClick(getListView(), pos);
+		if (pos != ListView.INVALID_POSITION) {
+			gestionarOnItemClick(getListView(), pos);
+		}
 
 	}
 
 	private void onRTLFling(int pos) {
 		// Borrar
-		crearDialogo(
-				"¿Seguro que desea borrar la receta \"" + elementos.get(pos)
-						+ "\"?", pos).show();
+		if (pos != ListView.INVALID_POSITION) {
+			crearDialogo(
+					"¿Seguro que desea borrar la receta \""
+							+ elementos.get(pos) + "\"?", pos).show();
+		}
 	}
 
 	class MyGestureDetector extends SimpleOnGestureListener {

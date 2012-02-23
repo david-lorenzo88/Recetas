@@ -1,6 +1,6 @@
 package com.yoanaydavid.recetas;
 
-import com.yoanaydavid.recetas.R;
+
 import com.yoanaydavid.recetas.java.Mode;
 
 import android.app.Activity;

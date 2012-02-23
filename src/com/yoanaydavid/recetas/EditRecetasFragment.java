@@ -184,19 +184,24 @@ public class EditRecetasFragment extends Fragment {
 		}
 
 	};
+
 	public void setTabColor() {
-	    for(int i=0;i<tabHost.getTabWidget().getChildCount();i++)
-	    {
-	    	tabHost.getTabWidget().getChildAt(i).setBackgroundDrawable(getResources().getDrawable(R.drawable.tab)); //unselected
-	    	
-	    }
-	    tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).setBackgroundColor(Color.parseColor("#232f40")); // selected
-	    
+		for (int i = 0; i < tabHost.getTabWidget().getChildCount(); i++) {
+			tabHost.getTabWidget()
+					.getChildAt(i)
+					.setBackgroundDrawable(
+							getResources().getDrawable(R.drawable.tab)); // unselected
+
+		}
+		tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab())
+				.setBackgroundColor(Color.parseColor("#232f40")); // selected
+
 	}
+
 	OnTabChangeListener tabHostOnTabChange = new OnTabChangeListener() {
 		@Override
 		public void onTabChanged(String tabId) {
-			//setTabColor();
+			// setTabColor();
 			if (tabId.equals("guardar")) {
 				// actualizamos el TextView
 				if (!(listIngs.size() > 0)) {
@@ -531,20 +536,32 @@ public class EditRecetasFragment extends Fragment {
 		TabHost.TabSpec spec; // Reusable TabSpec for each tab
 
 		// Initialize a TabSpec for each tab and add it to the TabHost
-		spec = tabHost.newTabSpec("ingredientes")
-				.setIndicator("1. Ingredientes", getResources().getDrawable(R.drawable.ic_tab_ingredientes))
+		spec = tabHost
+				.newTabSpec("ingredientes")
+				.setIndicator(
+						"1. Ingredientes",
+						getResources().getDrawable(
+								R.drawable.ic_tab_ingredientes))
 				.setContent(R.id.ingredientesLayout);
 
 		tabHost.addTab(spec);
 
 		// Do the same for the other tabs
 
-		spec = tabHost.newTabSpec("elaboracion").setIndicator("2. Elaboración", getResources().getDrawable(R.drawable.ic_tab_elaboracion))
+		spec = tabHost
+				.newTabSpec("elaboracion")
+				.setIndicator(
+						"2. Elaboración",
+						getResources().getDrawable(
+								R.drawable.ic_tab_elaboracion))
 				.setContent(R.id.recetasModeLayout);
 
 		tabHost.addTab(spec);
 
-		spec = tabHost.newTabSpec("guardar").setIndicator("3. Guardar", getResources().getDrawable(R.drawable.ic_tab_save))
+		spec = tabHost
+				.newTabSpec("guardar")
+				.setIndicator("3. Guardar",
+						getResources().getDrawable(R.drawable.ic_tab_save))
 				.setContent(R.id.guardarLayout);
 
 		tabHost.addTab(spec);
@@ -589,7 +606,7 @@ public class EditRecetasFragment extends Fragment {
 						}
 					});
 			break;
-		case (Mode.DIALOG_DELETE+Mode.GESTURE_PASO):
+		case (Mode.DIALOG_DELETE + Mode.GESTURE_PASO):
 			builder.setPositiveButton("Sí",
 					new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int id) {
@@ -761,24 +778,28 @@ public class EditRecetasFragment extends Fragment {
 	private void onLTRFling(int pos, int mode) {
 		// Toast.makeText(getActivity(), ""+listViewIngs.getItemAtPosition(pos),
 		// Toast.LENGTH_SHORT).show();
-
-		onRTLFling(pos, mode);
+		if (pos != ListView.INVALID_POSITION) {
+			onRTLFling(pos, mode);
+		}
 	}
 
 	private void onRTLFling(int pos, int mode) {
 		// Toast.makeText(getActivity(), ""+listViewIngs.getItemAtPosition(pos),
 		// Toast.LENGTH_SHORT).show();
-		if (mode == Mode.GESTURE_INGREDIENTE) {
-			Ingrediente ing = listIngs.get(pos);
-			crearDialogo(
-					"¿Seguro que desea borrar \"" + ing.getNombre() + "\"?",
-					Mode.DIALOG_DELETE + Mode.GESTURE_INGREDIENTE, pos).show();
-		} else if (mode == Mode.GESTURE_PASO) {
-			Paso paso = listPasos.get(pos);
-			crearDialogo(
-					"¿Seguro que desea borrar el paso " + paso.getNumber()
-							+ " ?",
-					Mode.DIALOG_DELETE + Mode.GESTURE_PASO, pos).show();
+		if (pos != ListView.INVALID_POSITION) {
+			if (mode == Mode.GESTURE_INGREDIENTE) {
+				Ingrediente ing = listIngs.get(pos);
+				crearDialogo(
+						"¿Seguro que desea borrar \"" + ing.getNombre() + "\"?",
+						Mode.DIALOG_DELETE + Mode.GESTURE_INGREDIENTE, pos)
+						.show();
+			} else if (mode == Mode.GESTURE_PASO) {
+				Paso paso = listPasos.get(pos);
+				crearDialogo(
+						"¿Seguro que desea borrar el paso " + paso.getNumber()
+								+ " ?", Mode.DIALOG_DELETE + Mode.GESTURE_PASO,
+						pos).show();
+			}
 		}
 	}
 
@@ -792,21 +813,24 @@ public class EditRecetasFragment extends Fragment {
 		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
 				float velocityY) {
-			
-			ListView lista = (mode == Mode.GESTURE_INGREDIENTE) ? listaIngredientes : listaPasos;
+
+			ListView lista = (mode == Mode.GESTURE_INGREDIENTE) ? listaIngredientes
+					: listaPasos;
 
 			if (Math.abs(e1.getY() - e2.getY()) > REL_SWIPE_MAX_OFF_PATH)
 				return false;
 			if (e1.getX() - e2.getX() > REL_SWIPE_MIN_DISTANCE
 					&& Math.abs(velocityX) > REL_SWIPE_THRESHOLD_VELOCITY) {
 
-				onRTLFling(lista.pointToPosition((int) e1.getX(),
-						(int) e1.getY()), mode);
+				onRTLFling(
+						lista.pointToPosition((int) e1.getX(), (int) e1.getY()),
+						mode);
 			} else if (e2.getX() - e1.getX() > REL_SWIPE_MIN_DISTANCE
 					&& Math.abs(velocityX) > REL_SWIPE_THRESHOLD_VELOCITY) {
 
-				onLTRFling(lista.pointToPosition((int) e1.getX(),
-						(int) e1.getY()), mode);
+				onLTRFling(
+						lista.pointToPosition((int) e1.getX(), (int) e1.getY()),
+						mode);
 
 			}
 			return false;

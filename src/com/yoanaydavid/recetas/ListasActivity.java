@@ -34,6 +34,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -51,7 +53,7 @@ import com.yoanaydavid.recetas.java.Mode;
  * This sample provides a different layout (and activity flow) when run in
  * landscape.
  */
-public class ListasActivity extends FragmentActivity implements ListasListener,
+public class ListasActivity extends ActionBarActivity implements ListasListener,
 		OnClickListener {
 	private boolean mDualPane = false;
 
@@ -596,7 +598,15 @@ public class ListasActivity extends FragmentActivity implements ListasListener,
 		 */
 
 	}
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.main, menu);
 
+        // Calling super after populating the menu is necessary here to ensure that the
+        // action bar helpers have a chance to handle this event.
+        return super.onCreateOptionsMenu(menu);
+    }
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		Log.i("test", Integer.toString(item.getItemId()));
@@ -609,6 +619,18 @@ public class ListasActivity extends FragmentActivity implements ListasListener,
 			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intent);
 			return true;
+		case R.id.menu_new:
+            Toast.makeText(this, "Tapped new", Toast.LENGTH_SHORT).show();
+            
+            return true;
+
+        case R.id.menu_search:
+            Toast.makeText(this, "Tapped search", Toast.LENGTH_SHORT).show();
+            return true;
+
+        case R.id.menu_share:
+            Toast.makeText(this, "Tapped share", Toast.LENGTH_SHORT).show();
+            return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}

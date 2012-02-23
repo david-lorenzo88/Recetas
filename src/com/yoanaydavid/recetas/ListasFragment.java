@@ -161,8 +161,9 @@ public class ListasFragment extends ListFragment {
 					 * .getSupportFragmentManager().findFragmentById(
 					 * R.id.details); details.setDefaultValues();
 					 */
-					if(((ListasActivity) getActivity()).ismDualPane())
-						((ListasActivity) getActivity()).mPager.setCurrentItem(0);
+					if (((ListasActivity) getActivity()).ismDualPane())
+						((ListasActivity) getActivity()).mPager
+								.setCurrentItem(0);
 
 				}
 
@@ -176,15 +177,18 @@ public class ListasFragment extends ListFragment {
 
 	private void onLTRFling(int pos) {
 		// Abrir lista
-		gestionarOnItemClick(getListView(), pos);
-
+		if (pos != ListView.INVALID_POSITION) {
+			gestionarOnItemClick(getListView(), pos);
+		}
 	}
 
 	private void onRTLFling(int pos) {
 		// Borrar
-		crearDialogo(
-				"¿Seguro que desea borrar la lista \"" + elementos.get(pos)
-						+ "\"?", pos).show();
+		if (pos != ListView.INVALID_POSITION) {
+			crearDialogo(
+					"¿Seguro que desea borrar la lista \"" + elementos.get(pos)
+							+ "\"?", pos).show();
+		}
 	}
 
 	class MyGestureDetector extends SimpleOnGestureListener {
