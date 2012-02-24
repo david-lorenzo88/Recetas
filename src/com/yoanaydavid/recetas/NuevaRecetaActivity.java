@@ -19,6 +19,9 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
@@ -31,7 +34,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class NuevaRecetaActivity extends FragmentActivity implements
+public class NuevaRecetaActivity extends ActionBarActivity implements
 		OnClickListener {
 	final static int NUEVA_RECETA_ACTIVITY_CODE = 1;
 	FileXML file;
@@ -40,7 +43,7 @@ public class NuevaRecetaActivity extends FragmentActivity implements
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setTheme(android.R.style.Theme);
+		
 		file = new FileXML();
 		if (savedInstanceState == null) {
 			Bundle extras = getIntent().getExtras();
@@ -308,6 +311,43 @@ public class NuevaRecetaActivity extends FragmentActivity implements
 				erf.getAdapterPasos().notifyDataSetChanged();
 
 			}
+		}
+	}
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.main, menu);
+
+        // Calling super after populating the menu is necessary here to ensure that the
+        // action bar helpers have a chance to handle this event.
+        return super.onCreateOptionsMenu(menu);
+    }
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		Log.i("test", Integer.toString(item.getItemId()));
+		// return true;
+
+		switch (item.getItemId()) {
+		case 16908332: // android.R.id.home
+			// app icon in action bar clicked; go home
+			Intent intent = new Intent(this, Main.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(intent);
+			return true;
+		case R.id.menu_new:
+            Toast.makeText(this, "Tapped new", Toast.LENGTH_SHORT).show();
+            
+            return true;
+
+        case R.id.menu_search:
+            Toast.makeText(this, "Tapped search", Toast.LENGTH_SHORT).show();
+            return true;
+
+        case R.id.menu_share:
+            Toast.makeText(this, "Tapped share", Toast.LENGTH_SHORT).show();
+            return true;
+		default:
+			return super.onOptionsItemSelected(item);
 		}
 	}
 

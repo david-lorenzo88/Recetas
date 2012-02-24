@@ -21,6 +21,9 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.Display;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
@@ -39,7 +42,7 @@ import com.yoanaydavid.recetas.java.Receta;
 import com.yoanaydavid.recetas.java.RecetaAdvanced;
 import com.yoanaydavid.recetas.java.RecetaSimple;
 
-public class ShowRecetaActivity extends FragmentActivity implements
+public class ShowRecetaActivity extends ActionBarActivity implements
 		OnClickListener {
 	
 
@@ -215,7 +218,43 @@ public class ShowRecetaActivity extends FragmentActivity implements
 
 		return alert;
 	}
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.main, menu);
 
+        // Calling super after populating the menu is necessary here to ensure that the
+        // action bar helpers have a chance to handle this event.
+        return super.onCreateOptionsMenu(menu);
+    }
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		Log.i("test", Integer.toString(item.getItemId()));
+		// return true;
+
+		switch (item.getItemId()) {
+		case 16908332: // android.R.id.home
+			// app icon in action bar clicked; go home
+			Intent intent = new Intent(this, Main.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(intent);
+			return true;
+		case R.id.menu_new:
+            Toast.makeText(this, "Tapped new", Toast.LENGTH_SHORT).show();
+            
+            return true;
+
+        case R.id.menu_search:
+            Toast.makeText(this, "Tapped search", Toast.LENGTH_SHORT).show();
+            return true;
+
+        case R.id.menu_share:
+            Toast.makeText(this, "Tapped share", Toast.LENGTH_SHORT).show();
+            return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 

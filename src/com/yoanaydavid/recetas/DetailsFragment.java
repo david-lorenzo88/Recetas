@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 
+import android.app.ActionBar.LayoutParams;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,6 +22,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.yoanaydavid.recetas.R;
@@ -99,6 +102,7 @@ public class DetailsFragment extends Fragment {
 	}
 	
 	public void changeToShowMode(){
+		
 		mode = Mode.SHOW;
 		textField.setText("");
 		textField.setVisibility(View.GONE);
@@ -107,6 +111,8 @@ public class DetailsFragment extends Fragment {
 		deleteAndSaveButton.setText("Borrar");
 		deleteAndSaveButton.setCompoundDrawablesWithIntrinsicBounds(
 				R.drawable.erase, 0, 0, 0);
+		
+		deleteAndSaveButton.setLayoutParams(new LinearLayout.LayoutParams(0, LayoutParams.WRAP_CONTENT, 50));
 		editButton.setVisibility(View.VISIBLE);
 		editButton.setOnClickListener(listener);
 	}
@@ -154,6 +160,7 @@ public class DetailsFragment extends Fragment {
 			editButton.setVisibility(View.GONE);
 			webView.loadUrl("file:///android_asset/default.html");
 		} 
+		
 
 		return content;
 

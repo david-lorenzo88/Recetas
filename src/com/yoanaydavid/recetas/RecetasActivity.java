@@ -49,7 +49,7 @@ import com.yoanaydavid.recetas.java.Receta;
 import com.yoanaydavid.recetas.java.RecetaAdvanced;
 import com.yoanaydavid.recetas.java.RecetaSimple;
 
-public class RecetasActivity extends FragmentActivity implements
+public class RecetasActivity extends ActionBarActivity implements
 		ListasListener, OnClickListener {
 	final static int EDIT_ID = 0;
 	final static int DELETE_ID = 1;

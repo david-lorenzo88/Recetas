@@ -19,12 +19,18 @@
     <style name="AppTheme" parent="android:style/Theme.Holo.Light">
         <item name="android:actionBarStyle">@style/ActionBar</item>
         <item name="android:windowContentOverlay">@drawable/actionbar_shadow</item>
+        <item name="android:buttonStyle">@style/MyButton</item>
     </style>
 
     <style name="ActionBar" parent="android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">#eee</item>
+        <item name="android:background">#2E6FF2</item>
         <item name="android:titleTextStyle">@style/ActionBarTitle</item>
         <item name="android:icon">@drawable/ic_home</item>
+    </style>
+    
+    <style name="MyButton" parent="android:style/Widget.Button">
+        <item name="android:textColor">#fff2f2f2</item>
+        <item name="android:background">@drawable/button_background</item>
     </style>
 
     <style name="ActionBarTitle">

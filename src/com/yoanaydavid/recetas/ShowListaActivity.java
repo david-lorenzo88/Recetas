@@ -48,7 +48,7 @@ public class ShowListaActivity extends ActionBarActivity implements
 	private int posicionListaActual;
 	DetailsFragment fragmentToUpdate;
 	FragmentPagerAdapterListas mAdapterListas;
-
+	private int mode;
 	ViewPager mPager;
 	
 	List<String> listas;
@@ -78,7 +78,8 @@ public class ShowListaActivity extends ActionBarActivity implements
 			
 			Bundle extras = getIntent().getExtras();
 			if (extras != null) {
-				if (extras.getInt("mode") == Mode.SHOW) {
+				mode = extras.getInt("mode");
+				if (mode == Mode.SHOW) {
 
 					// Modo mostrar lista
 					posicionListaActual = extras.getInt("position");
@@ -86,7 +87,7 @@ public class ShowListaActivity extends ActionBarActivity implements
 					setTitle(listaActual);
 					
 					
-				} else if (extras.getInt("mode") == Mode.NEW) {
+				} else if (mode == Mode.NEW) {
 					// Modo guardar nueva lista
 					DetailsFragment details = new DetailsFragment(this,
 							Mode.NEW,
@@ -105,7 +106,13 @@ public class ShowListaActivity extends ActionBarActivity implements
 	protected void onResume() {
 		super.onResume();
 
+		if(mode == Mode.SHOW)
+			configureViewPager();
 		
+
+	}
+	
+	private void configureViewPager(){
 		mAdapterListas = new FragmentPagerAdapterListas(
 				getSupportFragmentManager(), this, listas);
 
@@ -140,7 +147,6 @@ public class ShowListaActivity extends ActionBarActivity implements
 		});
 		mPager.setAdapter(mAdapterListas);
 		mPager.setCurrentItem(posicionListaActual);
-
 	}
 
 	@Override
@@ -199,7 +205,9 @@ public class ShowListaActivity extends ActionBarActivity implements
 								"¡Lista Guardada Correctamente!",
 								Toast.LENGTH_LONG).show();
 						listas.add(listaActual);
-						mPager.setCurrentItem(listas.size()-1);
+						posicionListaActual = listas.size()-1;
+						configureViewPager();
+						
 						
 						getSupportFragmentManager().beginTransaction().remove(details).commit();
 

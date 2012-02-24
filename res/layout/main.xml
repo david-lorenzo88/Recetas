@@ -22,6 +22,7 @@
                 android:drawableLeft="@drawable/list"
                 android:drawablePadding="5sp"
                 android:gravity="left|center_vertical"
+                android:onClick="listaCompraOnClick"
                 android:text="Nueva lista"
                 android:textStyle="bold" />
 
@@ -33,6 +34,7 @@
                 android:drawableLeft="@drawable/view"
                 android:drawablePadding="5sp"
                 android:gravity="left|center_vertical"
+                android:onClick="verListasGuardadasOnClick"
                 android:text="Ver listas"
                 android:textStyle="bold" />
         </TableRow>
@@ -47,6 +49,7 @@
                 android:drawableLeft="@drawable/receta_icon"
                 android:drawablePadding="5sp"
                 android:gravity="left|center_vertical"
+                android:onClick="recetaOnClick"
                 android:text="Nueva Receta"
                 android:textStyle="bold" />
 

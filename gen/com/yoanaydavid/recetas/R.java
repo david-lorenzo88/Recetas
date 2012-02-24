@@ -9,7 +9,7 @@ package com.yoanaydavid.recetas;
 
 public final class R {
     public static final class array {
-        public static final int menu_ingredientes=0x7f090000;
+        public static final int menu_ingredientes=0x7f080000;
     }
     public static final class attr {
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -94,7 +94,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int LinearLayout1=0x7f06001d;
         public static final int ListaCompraButton=0x7f060019;
         public static final int RecetaButton=0x7f06001b;
-        public static final int RelativeLayout1=0x7f060025;
+        public static final int RelativeLayout1=0x7f060026;
         public static final int VerListasButton=0x7f06001a;
         public static final int VerRecetasGuardadasButton=0x7f06001c;
         public static final int actionbar_compat=0x7f060000;
@@ -103,57 +103,58 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int actionbar_compat_title=0x7f060001;
         public static final int addIngredienteButton=0x7f060015;
         public static final int btnAdd=0x7f06000d;
-        public static final int btnCrearPaso=0x7f06002b;
+        public static final int btnCrearPaso=0x7f06002c;
         public static final int btnEditarIngrediente=0x7f060013;
         public static final int btnSave=0x7f06000f;
-        public static final int btnSaveList=0x7f060031;
+        public static final int btnSaveList=0x7f060032;
+        public static final int buttonsBox=0x7f060022;
         public static final int clearButton=0x7f060016;
         public static final int crearListaButton=0x7f060017;
         public static final int details=0x7f060006;
         public static final int detailsRecetas=0x7f060009;
-        public static final int editButton=0x7f060022;
+        public static final int editButton=0x7f060025;
         public static final int fragmentListas=0x7f060005;
         public static final int fragmentRecetas=0x7f060008;
-        public static final int guardarLayout=0x7f06002e;
-        public static final int guardarPasoButton=0x7f060035;
+        public static final int guardarLayout=0x7f06002f;
+        public static final int guardarPasoButton=0x7f060036;
         public static final int iconIngredientesReceta=0x7f060010;
-        public static final int iconRecetasMode=0x7f060039;
-        public static final int imagePaso=0x7f060036;
-        public static final int imageViewNuevoPaso=0x7f060034;
-        public static final int imagenButton=0x7f060033;
+        public static final int iconRecetasMode=0x7f06003a;
+        public static final int imagePaso=0x7f060037;
+        public static final int imageViewNuevoPaso=0x7f060035;
+        public static final int imagenButton=0x7f060034;
         public static final int imagenRecetas=0x7f06001f;
-        public static final int ingredientesLayout=0x7f06002c;
+        public static final int ingredientesLayout=0x7f06002d;
         public static final int ingredientesListView=0x7f060018;
         public static final int linearLayout2=0x7f06001e;
-        public static final int listIngredientes=0x7f06002d;
-        public static final int listPasos=0x7f06002a;
-        public static final int listRecetaModes=0x7f060028;
-        public static final int menu_new=0x7f06003c;
+        public static final int listIngredientes=0x7f06002e;
+        public static final int listPasos=0x7f06002b;
+        public static final int listRecetaModes=0x7f060029;
+        public static final int menu_new=0x7f06003d;
         public static final int menu_refresh=0x7f060004;
-        public static final int menu_search=0x7f06003d;
-        public static final int menu_share=0x7f06003e;
-        public static final int nombreListaText=0x7f060024;
+        public static final int menu_search=0x7f06003e;
+        public static final int menu_share=0x7f06003f;
+        public static final int nombreListaText=0x7f060023;
         public static final int pagerDetails=0x7f060007;
         public static final int pagerDetailsRecetas=0x7f06000a;
-        public static final int recetasModeLayout=0x7f060027;
-        public static final int saveButton=0x7f060023;
-        public static final int saveLayout=0x7f060026;
+        public static final int recetasModeLayout=0x7f060028;
+        public static final int saveButton=0x7f060024;
+        public static final int saveLayout=0x7f060027;
         public static final int sdcard=0x7f06000b;
         public static final int title_progress_bar=0x7f060020;
         public static final int txtBuscar=0x7f060014;
-        public static final int txtDescripcion=0x7f060032;
-        public static final int txtDescripcionPaso=0x7f060038;
+        public static final int txtDescripcion=0x7f060033;
+        public static final int txtDescripcionPaso=0x7f060039;
         public static final int txtIngredient=0x7f06000c;
-        public static final int txtNombreReceta=0x7f060030;
-        public static final int txtNumeroPaso=0x7f060037;
+        public static final int txtNombreReceta=0x7f060031;
+        public static final int txtNumeroPaso=0x7f060038;
         public static final int txtQuantity=0x7f06000e;
-        public static final int txtRecetaElaboracionSimple=0x7f060029;
+        public static final int txtRecetaElaboracionSimple=0x7f06002a;
         public static final int txtRecetasCantidad=0x7f060012;
         public static final int txtRecetasIngrediente=0x7f060011;
-        public static final int txtRecetasModeTexto=0x7f06003b;
-        public static final int txtRecetasModeTitulo=0x7f06003a;
+        public static final int txtRecetasModeTexto=0x7f06003c;
+        public static final int txtRecetasModeTitulo=0x7f06003b;
         public static final int webView=0x7f060021;
-        public static final int webViewDetalles=0x7f06002f;
+        public static final int webViewDetalles=0x7f060030;
     }
     public static final class layout {
         public static final int actionbar_compat=0x7f030000;
@@ -179,42 +180,39 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int main=0x7f0a0000;
     }
     public static final class string {
-        public static final int addIngrediente=0x7f080003;
-        public static final int alternate_title=0x7f08000f;
-        public static final int anadirimagen=0x7f08000b;
-        public static final int app_name=0x7f080001;
-        public static final int buscar=0x7f080002;
-        public static final int cantidad=0x7f080009;
-        public static final int descripcion=0x7f08000c;
-        public static final int elaboracion=0x7f080008;
-        public static final int guardarpaso=0x7f08000d;
-        public static final int hello=0x7f080000;
-        public static final int ingrediente=0x7f08000a;
-        public static final int ingredientes=0x7f080007;
-        public static final int insertName=0x7f080004;
-        public static final int menu_refresh=0x7f080011;
-        public static final int menu_search=0x7f080012;
-        public static final int menu_share=0x7f080013;
-        public static final int nombreTxt=0x7f080006;
-        public static final int proximamente=0x7f080005;
-        public static final int spinnerprompt=0x7f08000e;
-        public static final int toggle_title=0x7f080010;
+        public static final int addIngrediente=0x7f070003;
+        public static final int alternate_title=0x7f07000f;
+        public static final int anadirimagen=0x7f07000b;
+        public static final int app_name=0x7f070001;
+        public static final int buscar=0x7f070002;
+        public static final int cantidad=0x7f070009;
+        public static final int descripcion=0x7f07000c;
+        public static final int elaboracion=0x7f070008;
+        public static final int guardarpaso=0x7f07000d;
+        public static final int hello=0x7f070000;
+        public static final int ingrediente=0x7f07000a;
+        public static final int ingredientes=0x7f070007;
+        public static final int insertName=0x7f070004;
+        public static final int menu_refresh=0x7f070011;
+        public static final int menu_search=0x7f070012;
+        public static final int menu_share=0x7f070013;
+        public static final int nombreTxt=0x7f070006;
+        public static final int proximamente=0x7f070005;
+        public static final int spinnerprompt=0x7f07000e;
+        public static final int toggle_title=0x7f070010;
     }
     public static final class style {
-        public static final int ActionBar=0x7f07000c;
-        public static final int ActionBarCompat=0x7f070005;
-        public static final int ActionBarCompatHomeItem=0x7f07000b;
-        public static final int ActionBarCompatItem=0x7f07000a;
-        public static final int ActionBarCompatItemBase=0x7f070006;
-        public static final int ActionBarCompatProgressIndicator=0x7f070007;
-        public static final int ActionBarCompatTitle=0x7f070009;
-        public static final int ActionBarCompatTitleBase=0x7f070008;
-        public static final int ActionBarTitle=0x7f07000d;
-        public static final int AppTheme=0x7f070004;
-        public static final int CustomTabWidget=0x7f070003;
-        public static final int MyButton=0x7f070002;
-        public static final int MyTheme=0x7f070001;
-        public static final int MyWindowTitleBackground=0x7f070000;
+        public static final int ActionBar=0x7f090009;
+        public static final int ActionBarCompat=0x7f090002;
+        public static final int ActionBarCompatHomeItem=0x7f090008;
+        public static final int ActionBarCompatItem=0x7f090007;
+        public static final int ActionBarCompatItemBase=0x7f090003;
+        public static final int ActionBarCompatProgressIndicator=0x7f090004;
+        public static final int ActionBarCompatTitle=0x7f090006;
+        public static final int ActionBarCompatTitleBase=0x7f090005;
+        public static final int ActionBarTitle=0x7f09000a;
+        public static final int AppTheme=0x7f090000;
+        public static final int MyButton=0x7f090001;
     }
     public static final class styleable {
         /** Attributes that can be used with a AppTheme.

@@ -8,45 +8,50 @@
         android:id="@+id/webView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonsBox"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_above="@+id/editButton"
         android:scrollbarDefaultDelayBeforeFade="500"
         android:scrollbarStyle="insideOverlay" />
 
-    <Button
-        android:id="@+id/saveButton"
+    <LinearLayout
+        android:id="@+id/buttonsBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:drawableLeft="@drawable/save"
-        android:drawablePadding="15sp"
-        android:gravity="left|center_vertical"
-        android:text="Guardar Lista"
-        android:textStyle="bold" >
-    </Button>
-
-    <EditText
-        android:id="@+id/nombreListaText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/saveButton"
         android:layout_alignParentLeft="true" >
-    </EditText>
 
-    <Button
-        android:id="@+id/editButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/saveButton"
-        android:layout_alignParentLeft="true"
-        android:drawableLeft="@drawable/modify"
-        android:drawablePadding="15sp"
-        android:gravity="left|center_vertical"
-        android:text="Editar"
-        android:textStyle="bold"
-        android:visibility="invisible" >
-    </Button>
+        
+
+        <EditText
+            android:id="@+id/nombreListaText"
+            android:layout_width="0px"
+            android:layout_weight="100"
+            android:layout_height="wrap_content" />
+            
+        
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/save"
+            android:drawablePadding="15sp"
+            android:gravity="left|center_vertical"
+            android:textStyle="bold" />
+        
+
+        <Button
+            android:id="@+id/editButton"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:drawableLeft="@drawable/modify"
+            android:drawablePadding="15sp"
+            android:gravity="left|center_vertical"
+            android:text="Editar"
+            android:textStyle="bold"
+            android:visibility="gone" />
+        
+    </LinearLayout>
 
 </RelativeLayout>
